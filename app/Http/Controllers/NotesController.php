@@ -18,72 +18,59 @@ class NotesController extends Controller
 
     public function addNote (Request $request) {
 
+        // getting user data
         $data = $request->validate([
             'title' => 'required',
             'content' => 'nullable'
         ]);
 
-        // // getting data from input elements
-        // $title = $request->input('title');
-        // $content = $request->input('content');
-        
-        // adding new note
-        // $note = new Note;
-        // $note->title = $title;
-        // $note->content = $content;
-        // $note->save();
-
+        // creating a new note in table
         $note = Note::create($data);
 
-
+        // redirecting to index to show change
         return redirect(route('index'));
     }
 
     public function removeNote ($id) {
+
+        // fetching note with id
         $note = Note::find($id);
+
+        // deleting that note
         $note->delete();
 
+        // redirecting to index to show change
         return redirect(route('index'));
     }
 
     public function updateRoute ($id, Request $request) {
         
-        // getting data from input elements
-        // $id = $request->input('id');
-        // $title = $request->input('title');
-        // $content = $request->input('content');
-
-
+        // fetching note with id
         $note = Note::find($id);
+
+        // storing current note data
         $title = $note->title;
         $content = $note->content;
         
-        // $note->title = $title;
-        // $note->content = $content;
-        // $note->save();
+        // going to update page with current note data
         return view('update', ['id' => $id, 'title' => $title, 'content' => $content,]);
     }
 
     public function updateNote ($id, Request $request) {
 
+        // getting user data
         $data = $request->validate([
             'title' => 'required',
             'content' => 'nullable'
         ]);
-
+        
+        // fetching note with id
         $note = Note::find($id);
-        // $title = $request->input('title');
-        // $content = $request->input('content');
-
-        // $note->title = $title;
-        // $note->content = $content;
-        // $note->save();
-        // if($note->content != $data->content && $data->content == null) {
-        //     $data->content = $note->content;
-        // }
+        
+        // updating note in table
         $note->update($data);
 
-
+        // redirecting to index
         return redirect(route('index'));
     }
 }
