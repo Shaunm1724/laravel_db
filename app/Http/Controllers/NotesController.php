@@ -32,15 +32,15 @@ class NotesController extends Controller
 
     public function removeNote ($id) {
         $note = Note::find($id);
-
+        $note->delete();
 
         return redirect(route('index'));
     }
 
-    public function updateRoute ( Request $request) {
+    public function updateRoute ($id, Request $request) {
         
         // getting data from input elements
-        $id = $request->input('id');
+        // $id = $request->input('id');
         $title = $request->input('title');
         $content = $request->input('content');
 

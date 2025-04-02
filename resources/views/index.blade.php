@@ -2,7 +2,12 @@
 
 @foreach ($notes as $note)
     <div>
-        <p>{{ $note->title }}: {{ $note->content }}</p>
+        <p>
+            {{ $note->title }}: {{ $note->content }}
+            <a href={{ route('delete-note', [
+                'id' => $note->id,
+            ]) }}>Delete</a>
+        </p>
     </div>
 @endforeach
 
@@ -25,7 +30,7 @@
 <h3>Update Note</h3>
 
 
-<form action="{{ route('update-note') }}", method="POST">
+{{-- <form action="{{ route('update-note') }}", method="POST">
     @csrf
     @method('PUT')
 
@@ -43,4 +48,4 @@
     </div>
     <button type="submit">Update</button>
 
-</form>
+</form> --}}
