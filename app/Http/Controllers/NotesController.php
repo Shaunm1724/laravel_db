@@ -10,7 +10,7 @@ class NotesController extends Controller
 {
     
     public function index () {
-        $notes = DB::table('notes')->get();
+        $notes = Note::all();
 
 
         return view('index', ['notes' => $notes]);
