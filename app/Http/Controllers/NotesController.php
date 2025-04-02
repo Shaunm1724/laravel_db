@@ -27,6 +27,29 @@ class NotesController extends Controller
         $note->title = $title;
         $note->content = $content;
         $note->save();
-        return redirect('/');
+        return redirect(route('index'));
+    }
+
+    public function removeNote ($id) {
+        $note = Note::find($id);
+
+
+        return redirect(route('index'));
+    }
+
+    public function updateRoute ( Request $request) {
+        
+        // getting data from input elements
+        $id = $request->input('id');
+        $title = $request->input('title');
+        $content = $request->input('content');
+
+
+        $note = Note::find($id);
+        
+        $note->title = $title;
+        $note->content = $content;
+        $note->save();
+        return redirect(route('index'));
     }
 }
