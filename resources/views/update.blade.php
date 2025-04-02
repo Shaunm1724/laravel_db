@@ -6,11 +6,11 @@
 
     <div>
         <label>Title</label>
-        <input type="text" name="title" required="true" value={{ $title }}>
+        <input type="text" name="title" required="true" value="{{ $title }}">
     </div>
     <div>
         <label>Content</label>
-        <input type="text" name="content" value={{ $content }}>
+        <input type="text" name="content" value="{{ $content }}">
     </div>
     <button type="submit">Update</button>
 </form>

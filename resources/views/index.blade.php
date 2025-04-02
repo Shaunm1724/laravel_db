@@ -4,12 +4,12 @@
     <div>
         <p>
             {{ $note->title }}: {{ $note->content }}
-            <a href={{ route('delete-note', [
+            <a href="{{ route('delete-note', [
                 'id' => $note->id,
-            ]) }}>Delete</a>
-            <a href={{ route('update-route', [
+            ]) }}">Delete</a>
+            <a href="{{ route('update-route', [
                 'id' => $note->id,
-            ]) }}>Edit</a>
+            ]) }}">Edit</a>
         </p>
     </div>
 @endforeach

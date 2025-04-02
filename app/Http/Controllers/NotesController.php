@@ -18,15 +18,24 @@ class NotesController extends Controller
 
     public function addNote (Request $request) {
 
-        // getting data from input elements
-        $title = $request->input('title');
-        $content = $request->input('content');
+        $data = $request->validate([
+            'title' => 'required',
+            'content' => 'nullable'
+        ]);
+
+        // // getting data from input elements
+        // $title = $request->input('title');
+        // $content = $request->input('content');
         
         // adding new note
-        $note = new Note;
-        $note->title = $title;
-        $note->content = $content;
-        $note->save();
+        // $note = new Note;
+        // $note->title = $title;
+        // $note->content = $content;
+        // $note->save();
+
+        $note = Note::create($data);
+
+
         return redirect(route('index'));
     }
 
@@ -57,13 +66,22 @@ class NotesController extends Controller
 
     public function updateNote ($id, Request $request) {
 
-        $note = Note::find($id);
-        $title = $request->input('title');
-        $content = $request->input('content');
+        $data = $request->validate([
+            'title' => 'required',
+            'content' => 'nullable'
+        ]);
 
-        $note->title = $title;
-        $note->content = $content;
-        $note->save();
+        $note = Note::find($id);
+        // $title = $request->input('title');
+        // $content = $request->input('content');
+
+        // $note->title = $title;
+        // $note->content = $content;
+        // $note->save();
+        // if($note->content != $data->content && $data->content == null) {
+        //     $data->content = $note->content;
+        // }
+        $note->update($data);
 
 
         return redirect(route('index'));
