@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use \App\Models\Note;
+use App\Models\Note;
 
 class NotesController extends Controller
 {
@@ -13,7 +13,7 @@ class NotesController extends Controller
         $notes = Note::all();
 
 
-        return view('index', ['notes' => $notes]);
+        return view('index', ['notes' => $notes,]);
     }
 
     public function addNote (Request $request) {
@@ -41,15 +41,31 @@ class NotesController extends Controller
         
         // getting data from input elements
         // $id = $request->input('id');
-        $title = $request->input('title');
-        $content = $request->input('content');
+        // $title = $request->input('title');
+        // $content = $request->input('content');
 
 
         $note = Note::find($id);
+        $title = $note->title;
+        $content = $note->content;
         
+        // $note->title = $title;
+        // $note->content = $content;
+        // $note->save();
+        return view('update', ['id' => $id, 'title' => $title, 'content' => $content,]);
+    }
+
+    public function updateNote ($id, Request $request) {
+
+        $note = Note::find($id);
+        $title = $request->input('title');
+        $content = $request->input('content');
+
         $note->title = $title;
         $note->content = $content;
         $note->save();
+
+
         return redirect(route('index'));
     }
 }
