@@ -31,6 +31,12 @@ class NotesController extends Controller
         return redirect(route('index'));
     }
 
+    public function addNoteRoute () {
+        
+        // go to create note page
+        return view('create');
+    }
+
     public function removeNote ($id) {
 
         // fetching note with id

@@ -14,9 +14,9 @@
     </div>
 @endforeach
 
-<h3>Create Note</h3>
+<h3><a href="{{ route('add-note-route') }}">Create Note</a></h3>
 
-<form action="{{ route('add-note') }}" method="POST">
+{{-- <form action="{{ route('add-note') }}" method="POST">
     @csrf
 
     <div>
@@ -28,4 +28,4 @@
         <input type="text" name="content">
     </div>
     <button type="submit">Submit</button>
-</form>
+</form> --}}
