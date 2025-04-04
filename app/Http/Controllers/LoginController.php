@@ -55,4 +55,14 @@ class LoginController extends Controller
         return redirect('/');
     }
 
+
+
+    public function loginPage() {
+        return view('login');
+    }
+
+    public function registerPage () {
+        return view('register');
+    }
+
 }
