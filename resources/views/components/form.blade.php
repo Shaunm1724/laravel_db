@@ -1,4 +1,4 @@
-<x-layout pageTitle="{{ $pageTitle }}">
+<x-layout pageTitle="{{ $pageTitle }}" :navbar="true">
     <div class="max-w-xl mx-auto">
         <div class="flex items-center mb-6">
             <a href="{{ url()->previous() }}" class="mr-4 text-cyan-400 hover:text-cyan-300">
