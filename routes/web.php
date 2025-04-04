@@ -15,9 +15,9 @@ Route::controller(NotesController::class)->group(function () {
 
 
 Route::controller(LoginController::class)->group(function () {
-    Route::view('login', 'login')->name('login-page');
+    Route::view('/login', 'login')->name('login-page');
     Route::post('/login', 'authenticate')->name('login');
     Route::post('/register', 'registerUser')->name('register');
-    Route::view('register', 'register')->name('register-page');
+    Route::view('/register', 'register')->name('register-page');
     Route::get('/logout', 'logout')->name('logout');
 });
