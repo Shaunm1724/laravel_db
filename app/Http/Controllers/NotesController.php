@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Note;
+use Illuminate\Support\Facades\Auth;
 
 class NotesController extends Controller
 {
     
     public function index () {
-        $notes = Note::all();
+        $user = Auth::id();
 
+        $notes = Note::where('user_id', $user)->get();
 
         return view('index', ['notes' => $notes,]);
     }
@@ -23,6 +25,8 @@ class NotesController extends Controller
             'title' => 'required',
             'content' => 'nullable'
         ]);
+
+        $data["user_id"] = Auth::id();
 
         // creating a new note in table
         $note = Note::create($data);
