@@ -30,11 +30,11 @@
                     <a href="/" class="text-white font-bold text-xl">{{ config('app.name', 'Laravel') }}</a>
                 </div>
                 
-                <div class="hidden md:block">
+                {{-- <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="/" class="text-gray-300 hover:bg-dark-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
                     </div>
-                </div>
+                </div> --}}
                 
                 <div>
                     @guest
