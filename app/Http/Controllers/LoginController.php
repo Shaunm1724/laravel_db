@@ -44,7 +44,8 @@ class LoginController extends Controller
             ])->onlyInput('email');
         }
         $user = User::create($credentials);
-        return redirect()->route('login-page');
+        Auth::login($user);
+        return redirect()->route('index');
     }
 
     // logout
@@ -55,12 +56,12 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-
-
+    // return login page
     public function loginPage() {
         return view('login');
     }
 
+    // return register page
     public function registerPage () {
         return view('register');
     }
