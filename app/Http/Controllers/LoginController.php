@@ -40,8 +40,8 @@ class LoginController extends Controller
         $checkUser = User::where('email', $credentials["email"])->first();
         if($checkUser != null) {
             return back()->withErrors([
-                'email' => 'The provided is already in our records.',
-            ])->onlyInput('email');
+                'email' => 'The provided email is already in our records.',
+            ])->withInput();  
         }
         $user = User::create($credentials);
         Auth::login($user);
