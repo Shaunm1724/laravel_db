@@ -13,7 +13,7 @@ class NotesController extends Controller
     public function index () {
         $user = Auth::id();
 
-        $notes = Note::where('user_id', $user)->get();
+        $notes = Note::where('user_id', $user)->paginate(5);
 
         return view('index', ['notes' => $notes,]);
     }
@@ -32,7 +32,7 @@ class NotesController extends Controller
         $note = Note::create($data);
 
         // redirecting to index to show change
-        return redirect(route('index'));
+        return redirect(route('index'))->with('status', 'Note Added Successfully');
     }
 
     public function removeNote ($id) {
@@ -43,8 +43,8 @@ class NotesController extends Controller
         // deleting that note
         $note->delete();
 
-        // redirecting to index to show change
-        return redirect(route('index'));
+        // redirecting back
+        return back()->with('status', 'Note Deleted Successfully');
     }
 
     public function updateRoute ($id, Request $request) {
@@ -75,6 +75,6 @@ class NotesController extends Controller
         $note->update($data);
 
         // redirecting to index
-        return redirect(route('index'));
+        return redirect(route('index'))->with('status', 'Note Successfully Updated');
     }
 }
