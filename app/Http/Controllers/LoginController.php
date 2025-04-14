@@ -43,6 +43,15 @@ class LoginController extends Controller
                 'email' => 'The provided email is already in our records.',
             ])->withInput();  
         }
+
+        // confirm password
+        $confirmPassword = $request->input('confirmpassword');
+        if ($confirmPassword != $credentials['password']) {
+            return back()->withErrors([
+                'password' => 'Please ensure password and confirm password matches',
+            ])->withInput();
+        }
+
         $user = User::create($credentials);
         Auth::login($user);
         return redirect()->route('index');
