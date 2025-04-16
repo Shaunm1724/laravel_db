@@ -22,15 +22,15 @@
             });
         </script>
         @endif
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-700 pb-2 mb-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-700 pb-4 mb-6 gap-4">
             <h3 class="text-2xl font-bold text-cyan-400"><a href="{{ route('index') }}">Notes</a></h3>
-            <form action="{{ route('search-note') }}" method="GET" class="mt-2 sm:mt-0">
+            <form action="{{ route('search-note') }}" method="GET" class="w-full md:w-auto">
                 <div class="relative">
                     <input 
                         type="text" 
                         name="query" 
                         placeholder="Search notes..." 
-                        class="bg-dark-300 text-white border border-gray-700 rounded-md px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+                        class="w-full md:w-64 lg:w-80 bg-dark-300 text-white border border-gray-700 rounded-md px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
                         @isset($query)
                         value="{{ $query }}"
                         @endisset
