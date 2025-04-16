@@ -77,4 +77,13 @@ class NotesController extends Controller
         // redirecting to index
         return redirect(route('index'))->with('status', 'Note Successfully Updated');
     }
+
+    public function searchNote(Request $request) {
+        $user = Auth::id();
+        $query = $request->input('query');
+        $notes = Note::where('user_id', $user)->where('title', 'like', "%$query%")->paginate(5);
+
+        return view('index', ['notes' => $notes, 'query' => $query]);
+    
+    }
 }

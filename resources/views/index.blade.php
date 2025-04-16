@@ -8,7 +8,28 @@
             {{ session('status') }}
         </div>
         @endif
-        <h3 class="text-2xl font-bold mb-6 text-cyan-400 border-b border-gray-700 pb-2">Notes</h3>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-700 pb-2 mb-6">
+            <h3 class="text-2xl font-bold text-cyan-400"><a href="{{ route('index') }}">Notes</a></h3>
+            <form action="{{ route('search-note') }}" method="GET" class="mt-2 sm:mt-0">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        name="query" 
+                        placeholder="Search notes..." 
+                        class="bg-dark-300 text-white border border-gray-700 rounded-md px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+                        @isset($query)
+                        value="{{ $query }}"
+                        @endisset
+                        
+                    >
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </form>
+        </div>
         
         @if(count($notes) > 0)
             <div class="space-y-4">

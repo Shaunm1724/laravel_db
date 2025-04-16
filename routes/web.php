@@ -12,6 +12,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/remove-note/{id}', 'removeNote')->name('delete-note');
         Route::post('update-note/{id}', 'updateRoute')->name('update-route');
         Route::put('update-note/{id}', 'updateNote')->name('update-note');
+        Route::get('search-note', 'searchNote')->name('search-note');
     });
 });
 
