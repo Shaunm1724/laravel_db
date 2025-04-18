@@ -80,6 +80,7 @@ class NotesController extends Controller
 
     public function searchNote(Request $request) {
         $user = Auth::id();
+        $request->validate(['query' => 'nullable']);
         $query = $request->input('query');
         $notes = Note::where('user_id', $user)->where('title', 'like', "%$query%")->paginate(5);
 

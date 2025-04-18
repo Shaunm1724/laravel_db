@@ -32,7 +32,7 @@ class LoginController extends Controller
     public function registerUser (Request $request) {
         $credentials = $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
@@ -45,8 +45,8 @@ class LoginController extends Controller
         }
 
         // confirm password
-        $confirmPassword = $request->input('confirmpassword');
-        if ($confirmPassword != $credentials['password']) {
+        $confirmPassword = $request->validate(['confirmpassword' => 'required']);
+        if ($confirmPassword['confirmpassword'] != $credentials['password']) {
             return back()->withErrors([
                 'password' => 'Please ensure password and confirm password matches',
             ])->withInput();
