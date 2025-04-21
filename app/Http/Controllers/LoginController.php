@@ -15,8 +15,9 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+        $request->validate(['remember' => 'nullable']);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->input('remember'))) {
             $request->session()->regenerate();
 
             return redirect()->intended(route('index'));

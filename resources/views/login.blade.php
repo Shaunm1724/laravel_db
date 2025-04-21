@@ -15,6 +15,10 @@
             <input type="password" name="password" id="password" required="true" 
                     class="w-full px-3 py-2 bg-dark-100 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white">
         </div>
+        <div class="flex items-center mb-6">
+            <input type="checkbox" name="remember" id="remember" class="mr-2 bg-dark-100 border border-gray-600 rounded focus:ring-cyan-500 text-emerald-600">
+            <label for="remember" class="text-gray-200">Remember me</label>
+        </div>
         <div class="flex justify-end">
             <button type="submit" 
                     class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md transition-colors flex items-center">
