@@ -50,10 +50,10 @@
                 @foreach ($notes as $note)
                     <div class="bg-dark-200 rounded-lg shadow-lg p-4 transition-all hover:shadow-xl">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between">
-                            <div class="mb-2 sm:mb-0">
-                                <h4 class="font-semibold text-lg text-white">{{ $note->title }}</h4>
-                                <p class="text-gray-300">{{ $note->content }}</p>
-                            </div>
+                            <div class="mb-2 sm:mb-0 sm:pr-4 sm:flex-1 overflow-hidden">
+                                <h4 class="font-semibold text-lg text-white mb-1">{{ $note->title }}</h4>
+                                <p class="text-gray-300 break-words whitespace-pre-line overflow-hidden">{{ $note->content }}</p>
+                              </div>
                             <div class="flex space-x-2 mt-2 sm:mt-0">
                                 <form action="{{ route('update-route', ['id' => $note->id]) }}" method="POST">
                                     @csrf
