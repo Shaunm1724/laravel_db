@@ -18,8 +18,8 @@ A simple notes application built with Laravel and MySQL. This app allows users t
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/notes-app-laravel-mysql.git
-cd notes-app-laravel-mysql
+git clone https://github.com/Shaunm1724/laravel_db.git
+cd laravel_db
 ```
 
 ### Install Dependencies
