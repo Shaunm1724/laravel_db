@@ -2,6 +2,32 @@
 
 A simple notes application built with Laravel and MySQL. This app allows users to create, update, delete, and search for notes. Notes are stored according to the currently logged-in user.
 
+## Screenshots
+
+Here's a glimpse of the application:
+
+**1. Login & Registration:**
+   *   **Login Page:**
+       ![Login Page](docs/images/login_page.png "Application Login Page")
+   *   **Registration Page:**
+       ![Registration Page](docs/images/registration_page.png "User Registration Page")
+
+**2. Main Notes Dashboard:**
+   *   Shows existing notes, search bar, and create button.
+       ![Notes Dashboard](docs/images/notes_dashboard.png "Main view showing a list of notes")
+
+**3. Creating a New Note:**
+   *   Form for adding a title and content for a new note.
+       ![Create Note Form](docs/images/create_note_form.png "Form for creating a new note")
+
+**4. Editing an Existing Note:**
+   *   Form pre-filled with existing note data for updates.
+       ![Edit Note Form](docs/images/edit_note_form.png "Form for editing an existing note")
+
+**5. Search Functionality:**
+   *   Notes list filtered based on search criteria.
+       ![Search Results](docs/images/search_results.png "Notes list showing search results")
+
 ## Features
 
 * **User Authentication**: Secure login system to ensure notes are stored and accessed by the correct user.
